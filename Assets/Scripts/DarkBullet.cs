@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class DarkBullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public GameObject darkAreaPrefab; // Prefab for the dark area
-    private Vector2 targetPosition; // The position where the dark area will spawn
+    [SerializeField] float speed = 10f;
+    [SerializeField] GameObject darkAreaPrefab;
+    private Vector2 targetPosition;
 
     public void SetTargetPosition(Vector2 position)
     {

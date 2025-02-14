@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float jumpForce = 10f;
     
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private bool isGrounded;
     
     private float moveInput;

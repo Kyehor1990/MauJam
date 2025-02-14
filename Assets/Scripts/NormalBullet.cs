@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class NormalBullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public int damage = 1;
+    [SerializeField] float speed = 10f;
+    [SerializeField] int damage = 1;
 
     void Update()
     {

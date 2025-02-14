@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject normalBulletPrefab;
-    public GameObject darkBulletPrefab;
-    public Transform gunPosition; // Position where bullets spawn
-    public float bulletSpeed = 10f;
+    [SerializeField] GameObject normalBulletPrefab;
+    [SerializeField] GameObject darkBulletPrefab;
+    [SerializeField] Transform gunPosition; // Position where bullets spawn
+    [SerializeField] float bulletSpeed = 10f;
 
     void Update()
     {
