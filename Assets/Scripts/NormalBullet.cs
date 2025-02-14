@@ -3,7 +3,6 @@ using UnityEngine;
 public class NormalBullet : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
-    [SerializeField] int damage = 1;
 
     void Update()
     {
@@ -14,7 +13,6 @@ public class NormalBullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            //collision.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (!collision.CompareTag("Player"))
