@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     
-    public float moveInput;
+    [SerializeField] float moveInput;
+    
+    [SerializeField] Camera mainCamera;
 
     private void Start()
     {
@@ -22,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
-        if (moveInput > 0)
+        if (mousePos.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (moveInput < 0)
+        else if (mousePos.x < transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
