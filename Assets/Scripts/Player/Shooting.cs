@@ -4,7 +4,7 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] GameObject normalBulletPrefab;
     [SerializeField] GameObject darkBulletPrefab;
-    [SerializeField] Transform gunPosition; // Position where bullets spawn
+    [SerializeField] Transform gunPosition;
     [SerializeField] float bulletSpeed = 10f;
 
     [SerializeField] private int NbulletCount = 3;
