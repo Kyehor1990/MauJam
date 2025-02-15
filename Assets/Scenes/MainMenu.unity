@@ -752,8 +752,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level1: Ulu
-  mainMenu: MainManu
+  mainMenu: MainMenu
   nextlevel: 
+  ayarlarMenusu: {fileID: 0}
 --- !u!4 &1732824644
 Transform:
   m_ObjectHideFlags: 0

@@ -8,8 +8,13 @@ public class GameStart : MonoBehaviour
     public string level1;
     public string mainMenu;
     public string nextlevel;
+    public GameObject ayarlarMenusu;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ayarlarMenusu.SetActive(true);
+        }
 
 
 
