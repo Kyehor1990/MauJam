@@ -7,16 +7,21 @@ public class Shooting : MonoBehaviour
     [SerializeField] Transform gunPosition; // Position where bullets spawn
     [SerializeField] float bulletSpeed = 10f;
 
+    [SerializeField] private int NbulletCount = 3;
+    [SerializeField] int DbulletCount = 3;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && NbulletCount > 0)
         {
             Shoot(normalBulletPrefab);
+            NbulletCount--;
         }
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && DbulletCount > 0)
         {
             Shoot(darkBulletPrefab);
+            DbulletCount--;
         }
     }
 
