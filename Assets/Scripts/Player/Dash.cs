@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    public float dashSpeed = 10f;  // Dash hızı
-    public float dashTime = 0.2f;  // Dash süresi
-    public float dashCooldown = 1f; // Dash'in tekrar kullanılma süresi
+    public float dashSpeed = 10f;
+    public float dashTime = 0.2f;
+    public float dashCooldown = 1f;
 
     private Rigidbody2D rb;
     private bool isDashing = false;
@@ -49,12 +49,10 @@ public class PlayerDash : MonoBehaviour
         dashTimer = dashTime;
         cooldownTimer = dashCooldown;
 
-        // Son hareket yönüne göre Dash yap
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         dashDirection = new Vector2(moveX, moveY).normalized;
 
-        // Eğer yön algılanmadıysa karakterin baktığı yöne Dash yap
         if (dashDirection == Vector2.zero)
         {
             dashDirection = transform.right;

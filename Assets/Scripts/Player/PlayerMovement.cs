@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     
-    private float moveInput;
+    public float moveInput;
 
     private void Start()
     {
