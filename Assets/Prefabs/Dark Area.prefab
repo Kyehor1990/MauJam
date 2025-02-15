@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6713591704588431143}
   - component: {fileID: 5814753788781972433}
   - component: {fileID: 125072200318296231}
+  - component: {fileID: 4857606870998128874}
   m_Layer: 8
   m_Name: Dark Area
-  m_TagString: Untagged
+  m_TagString: DarkArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0.0033374634, y: -0.020023858}
   serializedVersion: 2
   m_Radius: 0.36984456
+--- !u!114 &4857606870998128874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685730777271231712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5bc2f408e276949aebf702570c9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 3

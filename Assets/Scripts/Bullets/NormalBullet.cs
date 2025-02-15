@@ -15,7 +15,7 @@ public class NormalBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (!collision.CompareTag("Player"))
+        else if (!collision.CompareTag("Player") && !collision.CompareTag("DarkArea"))
         {
             Destroy(gameObject);
         }
