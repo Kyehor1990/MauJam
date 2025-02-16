@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
-    public string mainMenu, nextlevel, level1 = "";
-    public TextMeshProUGUI win,lose;
-    bool winmi = false,losemu = false;
+    public string mainMenu, nextlevel, level1 = "level1";
+    public TextMeshProUGUI win, lose;
+    bool winmi = false, losemu = false;
 
     public GameObject ayarlarMenusu;
     void Update()
@@ -25,17 +25,23 @@ public class GameStart : MonoBehaviour
 
     public void winGame()
     {
-        ayarlarMenusu.SetActive(true);
-        Time.timeScale = 0f;
-        win.text = "Next Level";
-        winmi = true;
+        if (!losemu)
+        {
+            ayarlarMenusu.SetActive(true);
+            Time.timeScale = 0f;
+            win.text = "Next Level";
+            winmi = true;
+        }
     }
     public void loseGame()
     {
-        ayarlarMenusu.SetActive(true);
-        Time.timeScale = 0f;
-        lose.text = "Try Again";
-        losemu = true;
+        if (!winmi)
+        {
+            ayarlarMenusu.SetActive(true);
+            Time.timeScale = 0f;
+            lose.text = "Try Again";
+            losemu = true;
+        }
     }
     public void Newgame()
     {
@@ -44,8 +50,8 @@ public class GameStart : MonoBehaviour
     public void Nextlevel()
     {
         Time.timeScale = 1f;
-        if (winmi) { SceneManager.LoadScene(nextlevel); Time.timeScale = 1f; }
-        else if (losemu) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); Time.timeScale = 1f; }
+        if (winmi) { Time.timeScale = 1f; Debug.Log("kazandýn"); SceneManager.LoadScene(nextlevel); }
+        else if (losemu) { Time.timeScale = 1f; Debug.Log("çalýþtý"); SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
         else
         {
             ayarlarMenusu.SetActive(false);
@@ -59,5 +65,8 @@ public class GameStart : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
-
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
 }
