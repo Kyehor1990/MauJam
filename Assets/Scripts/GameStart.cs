@@ -49,6 +49,7 @@ public class GameStart : MonoBehaviour
     }
     public void Nextlevel()
     {
+        Debug.Log("deneme");
         Time.timeScale = 1f;
         if (winmi) { Time.timeScale = 1f; Debug.Log("kazandýn"); SceneManager.LoadScene(nextlevel); }
         else if (losemu) { Time.timeScale = 1f; Debug.Log("çalýþtý"); SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
