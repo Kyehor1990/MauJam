@@ -72,7 +72,7 @@ public class EnemySight : MonoBehaviour
 
     void GameOver()
     {
-        Debug.Log("Game Over!");
+        gameStart.loseGame();
     }
 
     private void OnDrawGizmosSelected()

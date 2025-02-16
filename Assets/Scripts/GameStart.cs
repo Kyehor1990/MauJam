@@ -44,8 +44,8 @@ public class GameStart : MonoBehaviour
     public void Nextlevel()
     {
         Time.timeScale = 1f;
-        if (winmi) { SceneManager.LoadScene(nextlevel); }
-        else if (losemu) { SceneManager.LoadScene(nextlevel); }
+        if (winmi) { SceneManager.LoadScene(nextlevel); Time.timeScale = 1f; }
+        else if (losemu) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); Time.timeScale = 1f; }
         else
         {
             ayarlarMenusu.SetActive(false);
