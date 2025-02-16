@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
@@ -7,11 +8,13 @@ public class Shooting : MonoBehaviour
     [SerializeField] Transform gunPosition;
     [SerializeField] float bulletSpeed = 10f;
 
-    [SerializeField] private int NbulletCount = 3;
-    [SerializeField] int DbulletCount = 3;
-
+    [SerializeField] public int NbulletCount = 3;
+    [SerializeField] public int DbulletCount = 3;
+    public TextMeshProUGUI bullet,blueBullet;
     void Update()
     {
+        bullet.text = NbulletCount.ToString();
+        blueBullet.text = DbulletCount.ToString();
         if (Time.timeScale == 1f)
         {
             if (Input.GetMouseButtonDown(0) && NbulletCount > 0)

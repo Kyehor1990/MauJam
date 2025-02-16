@@ -70,4 +70,8 @@ public class GameStart : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
