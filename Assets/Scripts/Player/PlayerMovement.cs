@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] Camera mainCamera;
     [SerializeField] Animator animator;
+    
 
     private void Start()
     {
