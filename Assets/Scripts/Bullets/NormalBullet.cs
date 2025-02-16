@@ -3,7 +3,7 @@ using UnityEngine;
 public class NormalBullet : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
-    GameStart gameStart;
+    public GameStart gameStart;
 
     void Update()
     {

@@ -1067,6 +1067,7 @@ GameObject:
   - component: {fileID: 828762617}
   - component: {fileID: 828762616}
   - component: {fileID: 828762618}
+  - component: {fileID: 828762619}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Boss
@@ -1227,6 +1228,19 @@ MonoBehaviour:
   darkAreaLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &828762619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828762613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92392ebcdc650b84c92d43cf6b08bef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStart: {fileID: 2038326711}
 --- !u!1 &844310403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,8 +1397,8 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 160822549
-  m_Mesh: {fileID: 1817722794}
-  m_InstanceId: 28484
+  m_Mesh: {fileID: 1772205866}
+  m_InstanceId: 30180
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -1730,7 +1744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 328.29407, y: -142.50446}
+  m_AnchoredPosition: {x: 127.29405, y: -29.254433}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1354088874
@@ -1819,6 +1833,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2114,7 +2140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 328.29407, y: -192.50446}
+  m_AnchoredPosition: {x: 127.29405, y: -79.25443}
   m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588398690
@@ -2208,7 +2234,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!43 &1817722794
+--- !u!43 &1772205866
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2623,7 +2649,7 @@ MonoBehaviour:
   mainMenu: MainMenu
   nextlevel: 
   level1: 
-  win: {fileID: 0}
+  win: {fileID: 1830459510}
   ayarlarMenusu: {fileID: 1328977978}
 --- !u!4 &2038326712
 Transform:
@@ -2650,9 +2676,9 @@ SceneRoots:
   - {fileID: 828762615}
   - {fileID: 844310406}
   - {fileID: 1506962718}
-  - {fileID: 2038326712}
   - {fileID: 560172605}
   - {fileID: 1148120399}
   - {fileID: 270876171}
   - {fileID: 1862003682}
   - {fileID: 492210919}
+  - {fileID: 2038326712}
