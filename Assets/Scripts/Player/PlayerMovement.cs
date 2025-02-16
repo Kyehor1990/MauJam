@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("velocityY", rb.velocity.y);
         animator.SetBool("IsGrounded", isGrounded);
         
         if (!isGrounded && rb.velocity.y < 0)

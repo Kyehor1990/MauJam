@@ -11,6 +11,9 @@ public class PlayerDash : MonoBehaviour
     private float dashTimer;
     private float cooldownTimer = 0f;
     private Vector2 dashDirection;
+    
+    [SerializeField] Animator animator;
+    [SerializeField] private GameObject gun;
 
     void Start()
     {
@@ -19,6 +22,9 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
+        
+        animator.SetBool("IsDashing", isDashing);
+        
         if (cooldownTimer > 0)
         {
             cooldownTimer -= Time.deltaTime;

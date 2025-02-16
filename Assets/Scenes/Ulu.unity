@@ -1028,9 +1028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62aa3036a7b367b459e4a8a921db0fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 15
-  dashTime: 0.2
+  dashSpeed: 5
+  dashTime: 1
   dashCooldown: 1
+  animator: {fileID: 683055398}
+  gun: {fileID: 0}
 --- !u!95 &683055398
 Animator:
   serializedVersion: 5
@@ -1528,16 +1530,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1792033531, guid: 0503450a16efb4240917ed4f60051ede, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1295112755, guid: eedcad111aea8584e96c8092d032b669, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.71999997, y: 0.6454687}
+  m_Size: {x: 2.25, y: 2.0170898}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1254161381
