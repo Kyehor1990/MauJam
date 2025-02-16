@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
+        if (isDashing)
+        {
+           StartCoroutine(WaitForDash());
+        }
         
         animator.SetBool("IsDashing", isDashing);
         
@@ -69,5 +74,12 @@ public class PlayerDash : MonoBehaviour
     {
         isDashing = false;
         rb.velocity = Vector2.zero;
+    }
+    
+    IEnumerator WaitForDash()
+    {
+        gun.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        gun.SetActive(true);
     }
 }
