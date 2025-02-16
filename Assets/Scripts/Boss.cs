@@ -11,7 +11,6 @@ public class Boss : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             gameStart.winGame();
-            //Destroy(gameObject);
             
         }
     }
