@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveInput;
     
     [SerializeField] Camera mainCamera;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
@@ -22,8 +23,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("velocityY", rb.velocity.y);
+        animator.SetBool("IsGrounded", isGrounded);
+        
+        if (!isGrounded && rb.velocity.y < 0)
+        {
+            animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            animator.SetBool("IsFalling", false);
+        }
+    
+        
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
 
         Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
@@ -39,7 +55,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animator.SetTrigger("IsJumping");
         }
+        
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
