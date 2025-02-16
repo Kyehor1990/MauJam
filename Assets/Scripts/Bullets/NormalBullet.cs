@@ -3,6 +3,7 @@ using UnityEngine;
 public class NormalBullet : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
+    GameStart gameStart;
 
     void Update()
     {
@@ -13,6 +14,11 @@ public class NormalBullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Boss"))
+        {
+            gameStart.winGame();
             Destroy(gameObject);
         }
         else if (!collision.CompareTag("Player") && !collision.CompareTag("DarkArea"))

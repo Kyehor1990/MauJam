@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
-    public string level1;
-    public string mainMenu;
-    public string nextlevel;
+    public string mainMenu,nextlevel,level1;
+
     public GameObject ayarlarMenusu;
     void Update()
     {
@@ -30,6 +29,10 @@ public class GameStart : MonoBehaviour
     public void mainmenu()
     {
         SceneManager.LoadScene(mainMenu);
+    }
+    public void winGame()
+    {
+        gameObject.SetActive(true);
     }
 
 }
