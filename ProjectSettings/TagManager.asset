@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - ceset
   - DeathPlayer
+  - Buton
   layers:
   - Default
   - TransparentFX
