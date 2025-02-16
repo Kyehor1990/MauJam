@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] Animator animator;
     
-
+    AudioManager audioManager;
+    
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
         
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+
+        /*if (moveInput!= 0 && isGrounded == true)
+        {
+            audioManager.PlaySFX(audioManager.walk);
+            return;
+        }*/
         
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
 

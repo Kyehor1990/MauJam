@@ -12,6 +12,7 @@ TagManager:
   - ceset
   - DeathPlayer
   - Buton
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -11,6 +12,14 @@ public class Shooting : MonoBehaviour
     [SerializeField] public int NbulletCount = 3;
     [SerializeField] public int DbulletCount = 3;
     public TextMeshProUGUI bullet,blueBullet;
+    
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Update()
     {
         bullet.text = NbulletCount.ToString();
@@ -19,12 +28,14 @@ public class Shooting : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && NbulletCount > 0)
             {
+                audioManager.PlaySFX(audioManager.shoot);
                 Shoot(normalBulletPrefab);
                 NbulletCount--;
             }
 
             if (Input.GetMouseButtonDown(1) && DbulletCount > 0)
             {
+                audioManager.PlaySFX(audioManager.shoot);
                 Shoot(darkBulletPrefab);
                 DbulletCount--;
             }
