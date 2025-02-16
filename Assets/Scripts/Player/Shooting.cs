@@ -12,16 +12,19 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && NbulletCount > 0)
+        if (Time.timeScale == 1f)
         {
-            Shoot(normalBulletPrefab);
-            NbulletCount--;
-        }
-        
-        if (Input.GetMouseButtonDown(1) && DbulletCount > 0)
-        {
-            Shoot(darkBulletPrefab);
-            DbulletCount--;
+            if (Input.GetMouseButtonDown(0) && NbulletCount > 0)
+            {
+                Shoot(normalBulletPrefab);
+                NbulletCount--;
+            }
+
+            if (Input.GetMouseButtonDown(1) && DbulletCount > 0)
+            {
+                Shoot(darkBulletPrefab);
+                DbulletCount--;
+            }
         }
     }
 
@@ -33,7 +36,7 @@ public class Shooting : MonoBehaviour
         // Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, gunPosition.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        
+
         if (bulletPrefab == darkBulletPrefab)
         {
             DarkBullet darkBullet = bullet.GetComponent<DarkBullet>();
@@ -47,7 +50,7 @@ public class Shooting : MonoBehaviour
             // For normal bullets, set velocity
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         }
-        
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
