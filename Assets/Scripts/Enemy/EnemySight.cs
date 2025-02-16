@@ -1,59 +1,52 @@
 using UnityEngine;
+using System.Linq;
 
 public class EnemySight : MonoBehaviour
 {
     [SerializeField] float viewRadius = 5f;
-    [SerializeField] float viewAngle = 90f; // Angle of the enemy's line of sight (in degrees)
-    [SerializeField] LayerMask playerLayer; // Layer for the player
-    [SerializeField] LayerMask obstacleLayer; // Layer for obstacles (e.g., walls, dark areas)
-    [SerializeField] LayerMask darkAreaLayer; // Layer for dark areas
+    [SerializeField] float viewAngle = 90f;
+    [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask obstacleLayer;
+    [SerializeField] LayerMask darkAreaLayer;
 
-    private Transform player;
-    private Transform deathplayertag;
-
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+    private GameObject[] players;
+    private GameObject[] deathPlayers;
 
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        deathplayertag = GameObject.FindGameObjectWithTag("DeathPlayer").transform;
-        if (CanSeePlayer())
+        players = GameObject.FindGameObjectsWithTag("Player");
+        deathPlayers = GameObject.FindGameObjectsWithTag("DeathPlayer");
+        
+        foreach (var player in players.Concat(deathPlayers))
         {
-            if (IsPlayerHidden())
+            if (CanSeePlayer(player.transform))
             {
-                Debug.Log("Player is hidden. Enemy cannot see the player.");
-            }
-            else
-            {
-                Debug.Log("Player is seen! Game Over.");
-                GameOver();
+                if (IsPlayerHidden(player.transform))
+                {
+                    Debug.Log("Player is hidden. Enemy cannot see the player.");
+                }
+                else
+                {
+                    Debug.Log("Player is seen! Game Over.");
+                    GameOver();
+                    return;
+                }
             }
         }
     }
 
-    bool CanSeePlayer()
+    bool CanSeePlayer(Transform target)
     {
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        Vector2 directiontoDeathPlayer = (deathplayertag.position - transform.position).normalized;
+        Vector2 directionToTarget = (target.position - transform.position).normalized;
         
-
-        // Check if the player is within the view angle
-        if (Vector2.Angle(transform.right, directionToPlayer) < viewAngle / 2 || Vector2.Angle(transform.right, directiontoDeathPlayer) < viewAngle / 2)
+        if (Vector2.Angle(transform.right, directionToTarget) < viewAngle / 2)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-            float DistanceToDeathPlayer = Vector2.Distance(transform.position, deathplayertag.position);
+            float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-            // Check if the player is within the view radius
-            if ((distanceToPlayer < viewRadius) ||(DistanceToDeathPlayer < viewRadius))
+            if (distanceToTarget < viewRadius)
             {
-                // Check if there are no obstacles between the enemy and the player
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, obstacleLayer);
-                RaycastHit2D deathHit = Physics2D.Raycast(transform.position, directiontoDeathPlayer, DistanceToDeathPlayer, obstacleLayer);
-                
-                if ((hit.collider == null) || (deathHit == null))
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleLayer);
+                if (hit.collider == null)
                 {
                     return true;
                 }
@@ -62,24 +55,18 @@ public class EnemySight : MonoBehaviour
         return false;
     }
 
-    bool IsPlayerHidden()
+    bool IsPlayerHidden(Transform target)
     {
-        Collider2D[] darkAreas = Physics2D.OverlapCircleAll(player.position, 0.1f, darkAreaLayer);
+        Collider2D[] darkAreas = Physics2D.OverlapCircleAll(target.position, 0.1f, darkAreaLayer);
         if (darkAreas.Length > 0)
-        {
-            Debug.Log("Player is dark area.");
-            return true;
-        }
-        
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, darkAreaLayer);
-        if (hit.collider != null)
         {
             return true;
         }
 
-        return false;
+        Vector2 directionToTarget = (target.position - transform.position).normalized;
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, darkAreaLayer);
+        return hit.collider != null;
     }
 
     void GameOver()

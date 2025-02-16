@@ -22,7 +22,8 @@ public class EnemyDeath : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("ceset");
         gameObject.tag = "DeathPlayer";
         yield return new WaitForSeconds(0.8f);
-        //GetComponent<Collider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().simulated = false;
         yield return new WaitForSeconds(1.5f);
         //Destroy(gameObject);
     }
