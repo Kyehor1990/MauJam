@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
-    public string mainMenu,nextlevel,level1;
-    public TextMeshProUGUI win;
-    bool winmi=false;
+    public string mainMenu, nextlevel, level1 = "";
+    public TextMeshProUGUI win,lose;
+    bool winmi = false,losemu = false;
 
     public GameObject ayarlarMenusu;
     void Update()
@@ -22,31 +22,42 @@ public class GameStart : MonoBehaviour
 
 
     }
-     public void winGame()
+
+    public void winGame()
     {
         ayarlarMenusu.SetActive(true);
         Time.timeScale = 0f;
         win.text = "Next Level";
         winmi = true;
-    }public void Newgame() 
+    }
+    public void loseGame()
+    {
+        ayarlarMenusu.SetActive(true);
+        Time.timeScale = 0f;
+        lose.text = "Try Again";
+        losemu = true;
+    }
+    public void Newgame()
     {
         SceneManager.LoadScene(level1);
     }
     public void Nextlevel()
     {
-        
-        if (winmi) {SceneManager.LoadScene(nextlevel);}
+        Time.timeScale = 1f;
+        if (winmi) { SceneManager.LoadScene(nextlevel); }
+        else if (losemu) { SceneManager.LoadScene(nextlevel); }
         else
         {
             ayarlarMenusu.SetActive(false);
             Time.timeScale = 1f;
         }
 
+
     }
     public void mainmenu()
     {
         SceneManager.LoadScene(mainMenu);
     }
-   
+
 
 }
