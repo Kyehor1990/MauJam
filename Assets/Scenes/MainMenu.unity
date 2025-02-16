@@ -751,9 +751,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62a416ae8bec28468fde1faefba03c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level1: Ulu
   mainMenu: MainMenu
   nextlevel: 
+  level1: level1
+  win: {fileID: 0}
+  lose: {fileID: 0}
   ayarlarMenusu: {fileID: 0}
 --- !u!4 &1732824644
 Transform:

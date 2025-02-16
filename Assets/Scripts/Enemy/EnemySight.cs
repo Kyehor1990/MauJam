@@ -28,7 +28,7 @@ public class EnemySight : MonoBehaviour
                 }
                 else
                 {
-                    //Debug.Log("Player is seen! Game Over.");
+                    Debug.Log("Player is seen! Game Over.");
                     GameOver();
                     return;
                 }
