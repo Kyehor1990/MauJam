@@ -19,9 +19,11 @@ public class EnemyDeath : MonoBehaviour
 
     IEnumerator Death()
     {
+        gameObject.layer = LayerMask.NameToLayer("ceset");
+        gameObject.tag = "DeathPlayer";
         yield return new WaitForSeconds(0.8f);
-        GetComponent<Collider2D>().enabled = false;
+        //GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(1.5f);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
