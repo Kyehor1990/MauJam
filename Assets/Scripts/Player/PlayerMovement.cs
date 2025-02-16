@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
         animator.SetBool("IsGrounded", isGrounded);
         
         if (!isGrounded && rb.velocity.y < 0)
