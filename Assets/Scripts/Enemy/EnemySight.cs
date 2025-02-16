@@ -11,6 +11,7 @@ public class EnemySight : MonoBehaviour
 
     private GameObject[] players;
     private GameObject[] deathPlayers;
+    public GameStart gameStart;
 
     void Update()
     {

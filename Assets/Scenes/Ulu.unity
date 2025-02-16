@@ -376,6 +376,7 @@ MonoBehaviour:
   darkAreaLayer:
     serializedVersion: 2
     m_Bits: 256
+  gameStart: {fileID: 2038326711}
 --- !u!70 &95777994
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1264,7 +1265,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!43 &703563915
+--- !u!43 &826500888
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1605,6 +1606,7 @@ MonoBehaviour:
   darkAreaLayer:
     serializedVersion: 2
     m_Bits: 256
+  gameStart: {fileID: 0}
 --- !u!114 &828762619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,8 +1811,8 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 160822549
-  m_Mesh: {fileID: 703563915}
-  m_InstanceId: 41142
+  m_Mesh: {fileID: 826500888}
+  m_InstanceId: 34232
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -2469,6 +2471,7 @@ MonoBehaviour:
   darkAreaLayer:
     serializedVersion: 2
     m_Bits: 0
+  gameStart: {fileID: 0}
 --- !u!114 &1506962721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,6 +2835,7 @@ MonoBehaviour:
   darkAreaLayer:
     serializedVersion: 2
     m_Bits: 256
+  gameStart: {fileID: 2038326711}
 --- !u!70 &1821224971
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3295,6 +3299,7 @@ MonoBehaviour:
   nextlevel: 
   level1: 
   win: {fileID: 1830459510}
+  lose: {fileID: 0}
   ayarlarMenusu: {fileID: 1328977978}
 --- !u!4 &2038326712
 Transform:
