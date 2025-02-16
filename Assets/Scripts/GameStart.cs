@@ -16,6 +16,7 @@ public class GameStart : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ayarlarMenusu.SetActive(true);
+            Time.timeScale = 0f;
         }
 
 
@@ -24,6 +25,7 @@ public class GameStart : MonoBehaviour
      public void winGame()
     {
         ayarlarMenusu.SetActive(true);
+        Time.timeScale = 0f;
         win.text = "Next Level";
         winmi = true;
     }public void Newgame() 
@@ -34,7 +36,11 @@ public class GameStart : MonoBehaviour
     {
         
         if (winmi) {SceneManager.LoadScene(nextlevel);}
-        else { ayarlarMenusu.SetActive(false); }
+        else
+        {
+            ayarlarMenusu.SetActive(false);
+            Time.timeScale = 1f;
+        }
 
     }
     public void mainmenu()
